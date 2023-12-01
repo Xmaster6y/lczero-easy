@@ -20,7 +20,6 @@ repos:
     hooks:
     -   id: poetry-check
     -   id: poetry-lock
-    -   id: poetry-export
     -   id: poetry-install
 -   repo: https://github.com/pre-commit/mirrors-mypy
     rev: v1.7.1
@@ -31,7 +30,7 @@ repos:
     rev: 6.1.0
     hooks:
     -   id: flake8
-        args: ['--ignore=E203,W503']
+        args: ['--ignore=E203,W503', '--per-file-ignores=__init__.py:F401']
 -   repo: https://github.com/pycqa/isort
     rev: 5.12.0
     hooks:
