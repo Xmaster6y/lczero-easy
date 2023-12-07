@@ -7,7 +7,7 @@ line_length = 79
 
 [tool.poetry]
 name = "lczero-easy"
-version = "0.0.1"
+version = "0.1.0"
 description = "LeelaChessZero made easy."
 license = "MIT"
 authors = [
