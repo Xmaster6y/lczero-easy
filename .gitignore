@@ -130,5 +130,8 @@ dmypy.json
 
 # Various files
 ignored
+*.zip
+lc0
+!bin/lc0
 
 *secret*

@@ -6,12 +6,12 @@ profile = "black"
 line_length = 79
 
 [tool.poetry]
-name = "lczero_easy"
-version = "0.0.1"
+name = "lczero-easy"
+version = "0.1.0"
 description = "LeelaChessZero made easy."
 license = "MIT"
 authors = [
-    "Yoann Poupart <yoann.poupart@ens-lyon.org",
+    "Yoann Poupart <yoann.poupart@ens-lyon.org>",
 ]
 
 [[tool.poetry.source]]
@@ -35,3 +35,11 @@ optional = true
 pre-commit = "*"
 pytest = "*"
 pytest-cov = "*"
+
+[tool.poetry.group.api]
+optional = true
+
+[tool.poetry.group.api.dependencies]
+python-multipart = "^0.0.6"
+fastapi = "^0.104.1"
+uvicorn = {extras = ["standard"], version = "^0.24.0.post1"}
