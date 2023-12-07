@@ -83,7 +83,7 @@ async def convert(
     Convert a LeelaChessZero model to an ONNX model.
     """
     dir_id = uuid.uuid4()
-    directory = "tmp/" + str(dir_id)
+    directory = f"tmp/{str(dir_id)}"
     mkdir_cmd = ["mkdir", "-p", directory]
     result = subprocess.run(
         mkdir_cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE

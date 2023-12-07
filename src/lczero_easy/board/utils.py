@@ -39,10 +39,7 @@ def board_to_tensor13x8x8(board: chess.Board):
     tensor13x8x8[:12] = (ordinal_board == piece_tensor).float()
     if board.is_repetition(2):
         tensor13x8x8[12] = torch.ones((8, 8), dtype=torch.float)
-    if us == chess.WHITE:
-        return tensor13x8x8
-    else:
-        return tensor13x8x8.flip(1)
+    return tensor13x8x8 if us == chess.WHITE else tensor13x8x8.flip(1)
 
 
 def board_to_tensor112x8x8(last_board=chess.Board):
