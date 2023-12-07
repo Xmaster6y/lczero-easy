@@ -1863,3 +1863,5 @@ POLICY_INDEX = [
     "h7h8r",
     "h7h8b",
 ]
+
+INVERTED_POLICY_INDEX = {move: i for i, move in enumerate(POLICY_INDEX)}

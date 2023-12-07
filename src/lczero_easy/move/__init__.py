@@ -1,2 +1,1 @@
-from .constants import POLICY_INDEX
-from .utils import make_map, make_pos_enc
+from .constants import INVERTED_POLICY_INDEX, POLICY_INDEX

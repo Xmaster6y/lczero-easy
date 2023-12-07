@@ -1,0 +1,12 @@
+{
+    "configurations": [
+        {
+            "name": "Tests",
+            "type": "python",
+            "request": "launch",
+            "module": "pytest",
+            "args": ["tests"],
+            "console": "integratedTerminal"
+        }
+    ]
+}
