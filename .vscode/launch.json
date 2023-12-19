@@ -7,6 +7,20 @@
             "module": "pytest",
             "args": ["tests"],
             "console": "integratedTerminal"
+        },
+        {
+            "name": "Board Visualisation",
+            "type": "python",
+            "request": "launch",
+            "module": "lczero_easy.visualisation.board",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Gradio",
+            "type": "python",
+            "request": "launch",
+            "module": "experiments.main",
+            "console": "integratedTerminal"
         }
     ]
 }

@@ -25,8 +25,11 @@ build-backend = "poetry.core.masonry.api"
 [tool.poetry.dependencies]
 python = "^3.9"
 python-chess = "^1.999"
-torch = "^2.1.1"
+torch = "^2.1.0"
 onnx2pytorch = "^0.4.1"
+matplotlib = "^3.8.2"
+torchviz = "^0.0.2"
+zennit = "^0.5.1"
 
 [tool.poetry.group.dev]
 optional = true
@@ -43,3 +46,9 @@ optional = true
 python-multipart = "^0.0.6"
 fastapi = "^0.104.1"
 uvicorn = {extras = ["standard"], version = "^0.24.0.post1"}
+
+[tool.poetry.group.demo]
+optional = true
+
+[tool.poetry.group.demo.dependencies]
+gradio = "^4.8.0"
