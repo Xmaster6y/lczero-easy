@@ -2,6 +2,7 @@
 Constants for the move module.
 """
 
+from typing import Dict, List
 
 POLICY_INDEX = [
     "a1b1",
@@ -1864,4 +1865,18 @@ POLICY_INDEX = [
     "h7h8b",
 ]
 
-INVERTED_POLICY_INDEX = {move: i for i, move in enumerate(POLICY_INDEX)}
+INVERTED_POLICY_INDEX: Dict[str, int] = {}
+INVERTED_FROM_INDEX: Dict[str, List[int]] = {}
+INVERTED_TO_INDEX: Dict[str, List[int]] = {}
+for i, move in enumerate(POLICY_INDEX):
+    INVERTED_POLICY_INDEX[move] = i
+    from_square = move[:2]
+    to_square = move[2:]
+    try:
+        INVERTED_FROM_INDEX[from_square].append(i)
+    except KeyError:
+        INVERTED_FROM_INDEX[from_square] = [i]
+    try:
+        INVERTED_TO_INDEX[to_square].append(i)
+    except KeyError:
+        INVERTED_TO_INDEX[to_square] = [i]
