@@ -70,5 +70,5 @@ def render_heatmap(
 if __name__ == "__main__":
     board = chess.Board()
     svg_board, _ = render_heatmap(board, torch.arange(64))
-    with open("gradio/test.svg", "w") as f:
+    with open("test.svg", "w") as f:
         f.write(svg_board)
