@@ -13,7 +13,7 @@ MODEL_NAMES = [
     "128x10-2020_0324_1742_00_266.onnx",
     "t1-smolgen-512x15x8h-distilled-swa-3395000.onnx",
 ]
-models = {
+wrappers = {
     name: LczerroModelWrapper(f"{MODEL_DIRECTORY}/{name}")
     for name in MODEL_NAMES
 }

@@ -35,8 +35,8 @@ def make_policy_plot(
         except ValueError:
             gr.Warning("Invalid action sequence, using starting position.")
             board = chess.Board()
-    model = global_variables.models[model_name]
-    policy, outcome, value = model.prediction(board)
+    wrapper = global_variables.wrappers[model_name]
+    policy, outcome, value = wrapper.prediction(board)
     if use_softmax:
         policy = torch.softmax(policy, dim=-1)
     value = value.item()

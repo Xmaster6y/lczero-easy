@@ -16,10 +16,10 @@ def render_model(
 ):
     global model_rendered
     if model_name not in model_rendered:
-        model = global_variables.models[model_name]
-        model.ensure_loaded()
+        wrapper = global_variables.wrappers[model_name]
+        wrapper.ensure_loaded()
         render_architecture(
-            model.model,
+            wrapper.model,
             name=model_name,
             directory=global_variables.FIGURE_DIRECTORY,
         )
@@ -27,6 +27,15 @@ def render_model(
     return (
         f"{global_variables.FIGURE_DIRECTORY}/{model_name}_{tensor_type}.svg"
     )
+
+
+def render_model_str(
+    model_name,
+):
+    wrapper = global_variables.wrappers[model_name]
+    wrapper.ensure_loaded()
+    model_str = repr(wrapper.model)
+    return model_str
 
 
 with gr.Blocks() as interface:
@@ -42,15 +51,20 @@ with gr.Blocks() as interface:
             value="policy",
         )
 
-    button = gr.Button(label="Render")
+    button = gr.Button("Render")
 
+    description = gr.Textbox(label="Description", lines=1, max_lines=10)
     image = gr.Image(label="Board")
 
     button.click(
         render_model, inputs=[model_name, tensor_type], outputs=[image]
     )
+    button.click(render_model_str, inputs=[model_name], outputs=[description])
     model_name.change(
         render_model, inputs=[model_name, tensor_type], outputs=[image]
+    )
+    model_name.change(
+        render_model_str, inputs=[model_name], outputs=[description]
     )
     tensor_type.change(
         render_model, inputs=[model_name, tensor_type], outputs=[image]

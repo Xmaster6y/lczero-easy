@@ -5,6 +5,8 @@ Gradio demo for lczero-easy.
 import gradio as gr
 
 from experiments import (
+    attention_interface,
+    board_interface,
     chess_engine,
     encoding_interface,
     model_interface,
@@ -17,8 +19,17 @@ demo = gr.TabbedInterface(
         chess_engine.interface,
         model_interface.interface,
         encoding_interface.interface,
+        board_interface.interface,
+        attention_interface.interface,
     ],
-    ["Policy", "Chess Engine", "Model Architecture", "Board Encodings"],
+    [
+        "Policy",
+        "Chess Engine",
+        "Model Architecture",
+        "Board Encodings",
+        "Board Rendering",
+        "Attention Heatmap",
+    ],
     title="Lc0 Easy",
     analytics_enabled=False,
 )
